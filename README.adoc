@@ -1,2 +1,12 @@
-# lowCodeAnsaetze
-Fähigkeiten und Vorgehen von Low-Code-Ansätzen
+# Fähigkeiten und Vorgehen von Low-Code-Ansätzen
+# Autoren
+Christin Göb
+Chiara Schepke
+Teo Förste
+
+# Modul
+"Software Engineering” (Prof. Dr. Andreas Both, Wintersemester 2023/2024) an der HTWK Leipzig
+
+# Links
+
+# Kurzzusammenfassung
