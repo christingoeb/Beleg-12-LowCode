@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1099010587002",
+    "project_id": "te-chi-chri-9rmiar",
+    "storage_bucket": "te-chi-chri-9rmiar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1099010587002:android:734075048ada2357237ec3",
+        "android_client_info": {
+          "package_name": "com.mycompany.techichri"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEtZC5soKd4znLRX_RbwOwF_COzsk46_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
