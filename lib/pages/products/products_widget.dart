@@ -1,35 +1,60 @@
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'products_model.dart';
 export 'products_model.dart';
 
 class ProductsWidget extends StatefulWidget {
   const ProductsWidget({
     super.key,
-    this.procutName,
     this.productName,
   });
 
-  final DocumentReference? procutName;
   final DocumentReference? productName;
 
   @override
   _ProductsWidgetState createState() => _ProductsWidgetState();
 }
 
-class _ProductsWidgetState extends State<ProductsWidget> {
+class _ProductsWidgetState extends State<ProductsWidget>
+    with TickerProviderStateMixin {
   late ProductsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'iconButtonOnActionTriggerAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        FlipEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 1.0,
+          end: 2.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => ProductsModel());
+
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
   }
 
   @override
@@ -50,6 +75,8 @@ class _ProductsWidgetState extends State<ProductsWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -61,7 +88,7 @@ class _ProductsWidgetState extends State<ProductsWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,
           title: Text(
-            'TeChiChri Shop',
+            FFAppConstants.appName,
             style: FlutterFlowTheme.of(context).displaySmall,
           ),
           actions: [
@@ -94,7 +121,7 @@ class _ProductsWidgetState extends State<ProductsWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: StreamBuilder<List<ProductRecord>>(
                   stream: queryProductRecord(
-                    limit: 4,
+                    limit: 8,
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
@@ -150,7 +177,7 @@ class _ProductsWidgetState extends State<ProductsWidget> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(6.0),
                                       child: Image.network(
-                                        'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80',
+                                        listViewProductRecord.image,
                                         width: 80.0,
                                         height: 80.0,
                                         fit: BoxFit.cover,
@@ -203,9 +230,20 @@ class _ProductsWidgetState extends State<ProductsWidget> {
                                                 .primaryText,
                                             size: 20.0,
                                           ),
-                                          onPressed: () {
-                                            print('IconButton pressed ...');
+                                          onPressed: () async {
+                                            setState(() {
+                                              FFAppState().addToCartItems(
+                                                  listViewProductRecord
+                                                      .productID);
+                                              FFAppState().cartSum =
+                                                  FFAppState().cartSum +
+                                                      listViewProductRecord
+                                                          .price;
+                                            });
                                           },
+                                        ).animateOnActionTrigger(
+                                          animationsMap[
+                                              'iconButtonOnActionTriggerAnimation']!,
                                         ),
                                       ),
                                       Padding(

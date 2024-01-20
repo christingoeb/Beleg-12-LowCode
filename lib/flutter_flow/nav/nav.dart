@@ -81,19 +81,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? const ProductsWidget() : const ProductsWidget(),
         ),
         FFRoute(
-          name: 'cart',
-          path: '/cart',
-          builder: (context, params) => const CartWidget(),
-        ),
-        FFRoute(
           name: 'products',
           path: '/products',
           builder: (context, params) => ProductsWidget(
-            procutName: params.getParam(
-                'procutName', ParamType.DocumentReference, false, ['product']),
             productName: params.getParam(
                 'productName', ParamType.DocumentReference, false, ['product']),
           ),
+        ),
+        FFRoute(
+          name: 'cart',
+          path: '/cart',
+          builder: (context, params) => const CartWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
