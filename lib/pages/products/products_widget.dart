@@ -29,16 +29,16 @@ class _ProductsWidgetState extends State<ProductsWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'iconButtonOnActionTriggerAnimation': AnimationInfo(
+    'iconOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
       effects: [
-        FlipEffect(
+        TiltEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 1.0,
-          end: 2.0,
+          begin: const Offset(0, 0),
+          end: const Offset(0, 0.349),
         ),
       ],
     ),
@@ -213,38 +213,30 @@ class _ProductsWidgetState extends State<ProductsWidget>
                                         MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
-                                        child: FlutterFlowIconButton(
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryText,
-                                          borderRadius: 20.0,
-                                          borderWidth: 3.0,
-                                          buttonSize: 35.0,
-                                          fillColor: const Color(0x004B39EF),
-                                          icon: Icon(
-                                            Icons.add,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 20.0,
-                                          ),
-                                          onPressed: () async {
-                                            setState(() {
-                                              FFAppState().addToCartItems(
-                                                  listViewProductRecord
-                                                      .productID);
-                                              FFAppState().cartSum =
-                                                  FFAppState().cartSum +
-                                                      listViewProductRecord
-                                                          .price;
-                                            });
-                                          },
-                                        ).animateOnActionTrigger(
-                                          animationsMap[
-                                              'iconButtonOnActionTriggerAnimation']!,
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          setState(() {
+                                            FFAppState().addToCartItems(
+                                                listViewProductRecord
+                                                    .productID);
+                                            FFAppState().cartSum =
+                                                FFAppState().cartSum +
+                                                    listViewProductRecord.price;
+                                          });
+                                        },
+                                        child: Icon(
+                                          Icons.add_circle,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 30.0,
                                         ),
+                                      ).animateOnActionTrigger(
+                                        animationsMap[
+                                            'iconOnActionTriggerAnimation']!,
                                       ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(

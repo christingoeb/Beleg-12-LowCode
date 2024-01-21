@@ -266,12 +266,6 @@ class _CartWidgetState extends State<CartWidget> {
                                                             FontWeight.normal,
                                                       ),
                                                 ),
-                                                Text(
-                                                  'Hello World',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
                                               ],
                                             ),
                                           ),
