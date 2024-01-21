@@ -1,7 +1,7 @@
-# TeChiChri
+# TeChiChri-Shop
 
 A new Flutter project.
 
-## Getting Started
+## Information
 
-FlutterFlow projects are built to run on the Flutter _stable_ release.
+Our Flutterflow project to try out low-code.
