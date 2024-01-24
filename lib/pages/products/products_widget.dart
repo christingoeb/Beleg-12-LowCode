@@ -33,12 +33,12 @@ class _ProductsWidgetState extends State<ProductsWidget>
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
       effects: [
-        TiltEffect(
+        FlipEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
+          delay: 600.ms,
           duration: 600.ms,
-          begin: const Offset(0, 0),
-          end: const Offset(0, 0.349),
+          begin: 1.0,
+          end: 2.0,
         ),
       ],
     ),
