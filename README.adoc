@@ -9,7 +9,7 @@ Teo Förste
 "Software Engineering” (Prof. Dr. Andreas Both, Wintersemester 2023/2024) an der HTWK Leipzig
 
 # Links
-[Low Code Präsentation](https://github.com/christingoeb/Beleg-12-LowCode/blob/main/14_Low-Code-Praesentation.pdf).
+link:https://github.com/christingoeb/Beleg-12-LowCode/blob/main/14_Low-Code-Praesentation.pdf[14 Low-Code Präsentation]
 
 
 # Kurzzusammenfassung
