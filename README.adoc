@@ -1,15 +1,15 @@
-# Fähigkeiten und Vorgehen von Low-Code-Ansätzen
+# Beleg 12 - Fähigkeiten und Vorgehen von Low-Code-Ansätzen
 
 # Autoren
+Teo Förste
 Christin Göb
 Chiara Schepke
-Teo Förste
 
 # Modul
 "Software Engineering” (Prof. Dr. Andreas Both, Wintersemester 2023/2024) an der HTWK Leipzig
 
 # Links
-link:https://github.com/christingoeb/Beleg-12-LowCode/blob/main/14_Low-Code-Praesentation.pdf[14 Low-Code Präsentation]
+link:https://github.com/christingoeb/Beleg-12-LowCode/blob/main/14_Low-Code-Praesentation.pdf[12 Fähigkeiten und Vorgehen von Low-Code-Ansätzen Präsentation]
 
 
 # Kurzzusammenfassung
