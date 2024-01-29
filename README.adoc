@@ -10,4 +10,5 @@ Teo Förste
 
 # Links
 [Low Code Präsentation](https://github.com/christingoeb/Beleg-12-LowCode/blob/main/14_Low-Code-Praesentation.pdf)
+
 # Kurzzusammenfassung
