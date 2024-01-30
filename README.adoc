@@ -11,5 +11,6 @@ Chiara Schepke
 # Links
 link:https://github.com/christingoeb/Beleg-12-LowCode/blob/main/14_Low-Code-Praesentation.pdf[12 Fähigkeiten und Vorgehen von Low-Code-Ansätzen Präsentation]
 
+link:https://github.com/christingoeb/Beleg-12-LowCode/blob/main/12_Belegarbeit_Low-Code.pdf[12 Fähigkeiten und Vorgehen von Low-Code-Ansätzen Belegarbeit v1]
 
 # Kurzzusammenfassung
