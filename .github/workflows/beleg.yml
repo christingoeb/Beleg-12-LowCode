@@ -1,0 +1,30 @@
+name: Build Beleg
+on: [push]
+# Make sure the GITHUB_TOKEN has permission to upload to our releases
+permissions:
+  contents: write
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          latexmk_shell_escape: true
+          extra_system_packages: "inkscape"
+          working_directory: tex/
+          root_file: vorlage.tex
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v4
+        with:
+          name: PDF
+          path: ./beleg12-lowcode.pdf
+      - name: upload as latest release
+        run: |
+          cd ${{github.workspace}}
+          gh release upload v1.0.0 ./beleg12-lowcode.pdf
+        env:
+          GITHUB_TOKEN: ${{ github.TOKEN }}
+        shell: bash
